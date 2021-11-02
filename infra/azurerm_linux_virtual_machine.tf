@@ -1,6 +1,6 @@
 resource "azurerm_linux_virtual_machine" "vmtf_site" {
   name                = "${var.hostname}-site"
-  resource_group_name =  azurerm_resource_group.rg.name
+  resource_group_name =  azurerm_resource_group.rg-azure-tf.name
   location            = var.resource_group_location
   size             = var.vm_size
   network_interface_ids         = [azurerm_network_interface.vmtf_nic.id]
