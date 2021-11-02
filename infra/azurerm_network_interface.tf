@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "vmtf_nic" {
   name                = "${var.prefix}-nic"
   location            = var.resource_group_location
-  resource_group_name =  azurerm_resource_group.rg.name
+  resource_group_name =  azurerm_resource_group.rg-azure-tf.name
   ip_configuration {
     name                          = "temaip"
     subnet_id                     = azurerm_subnet.subnet.id
