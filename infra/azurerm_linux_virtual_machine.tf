@@ -10,7 +10,7 @@ resource "azurerm_linux_virtual_machine" "vmtf_site" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = (" SHA256:tqa3PV/aXIOPHpBPE6dNw+cN3s6tflnIZw/JfnZjiCI ")
+    public_key = "secrets.ID_RSA12"
   }
 
   source_image_reference  {
