@@ -1,9 +1,11 @@
 name: 'Terraform-destroy'
  
-on: [pull_request, workflow_dispach]
+on: 
   push:
     branches:
     - main
+  pull_request:  
+  workflow_dispatch:  
   
  
 jobs:
