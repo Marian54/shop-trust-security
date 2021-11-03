@@ -1,7 +1,7 @@
-resource "azurerm_network_security_group" "vmtf_sg" {
+resource "azurerm_network_security_group" "vmtf_sg_Team2" {
   name                = "${var.prefix}-sg"
   location            = var.resource_group_location
-  resource_group_name =  azurerm_resource_group.rg-azure-tf.name
+  resource_group_name =  azurerm_resource_group.Resource-Group-Azure-tf-Team2.name
 
   security_rule {
     name                       = "HTTP"
