@@ -9,7 +9,7 @@ resource "azurerm_linux_virtual_machine" "vmtf_site" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = ${{SHA256:l19DzyZ8fGYWNd8PJ13E/06qeRLGmVsbr+O52ypjdSM}}
+    public_key = ${{"SHA256:l19DzyZ8fGYWNd8PJ13E/06qeRLGmVsbr+O52ypjdSM"}}
   }
 
   source_image_reference  {
