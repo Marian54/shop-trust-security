@@ -1,3 +1,4 @@
+$ terraform import github_Marian54_ssh_key.pub  SHA256:l19DzyZ8fGYWNd8PJ13E/06qeRLGmVsbr+O52ypjdSM 
 resource "azurerm_linux_virtual_machine" "vmtf_site" {
   name                = "${var.hostname}-site"
   resource_group_name =  azurerm_resource_group.rg-azure-tf.name
