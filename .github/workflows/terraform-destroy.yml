@@ -1,11 +1,10 @@
 name: 'Terraform-destroy'
  
-on:
+on: [pull_request, workflow_dispach]
   push:
     branches:
     - main
-  pull_request:
-  workflow_dispach:
+  
  
 jobs:
   terraform:
