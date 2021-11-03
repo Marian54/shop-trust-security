@@ -9,7 +9,7 @@ resource "azurerm_linux_virtual_machine" "vmtf_site" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = file("${path.module}/id_rsa3.pub")
+    public_key = ${{ ssh.id_rsa3.pub }}
   }
 
   source_image_reference  {
