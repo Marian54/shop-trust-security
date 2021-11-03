@@ -1,10 +1,10 @@
 
 variable "prefix" {
-  default = "vnet"
+  default = "vnet-Team2"
 }
 
 variable "resource_group_name" {
-  default = "MyResourceGroup"
+  default = "ResourceGroupTeam2"
 }
 
 variable "resource_group_location" {
@@ -12,7 +12,7 @@ variable "resource_group_location" {
 }
 
 variable "hostname" {
-  default = "terraform-apache-server"
+  default = "Terraform-server-team2"
 }
 
 variable "vm_size" {
