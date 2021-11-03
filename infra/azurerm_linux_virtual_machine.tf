@@ -38,7 +38,7 @@ resource "azurerm_linux_virtual_machine" "vmtf_site" {
       private_key = file("${path.module}/id_rsa3")
       agent = false
     }
-  }*/
+  }**/
 
   admin_username = "azureuser"
 }
