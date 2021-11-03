@@ -29,9 +29,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-    - name: 'Terraform Destroy'
+    - name: 'Terraform Plan Destroy'
       uses: hashicorp/terraform-github-actions@master
       with:
-        tf_actions_version: 0.14.8
-        tf_actions_subcommand: 'destroya'
-        tf_actions_working_dir: "./.github/workflows/infra"
+         tf_actions_version: latest
+         tf_actions_subcommand: 'plan'
+         args: '-destroy -out=./destroy-plan'
+    - name: 'Terraform Apply Destroy'
+      uses: hashicorp/terraform-github-actions@master
+      with:
+            tf_actions_version: latest
+            tf_actions_subcommand: 'apply'  
+            args: './destroy-plan'
+
