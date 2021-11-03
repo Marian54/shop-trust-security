@@ -5,24 +5,36 @@ on:
     branches: [ main ]
 
 jobs:
-  terraform:
-    runs-on: ubuntu-latest
-
-    env:
-      ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_AD_SUBSCRIPTION_ID}}
-      ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
-
+  terraform-run-local:
+    name: 'Terraform Run Local' 
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    defaults:
+      run:
+        working-directory: ./.github/workflows/infra
     steps:
-      - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
-      - name: Setup Terraform
-        uses: Marian54/shop-trust-security/infra@main
+    - name: Setup Terraform
+      uses: ./
+    
+    - name: Terraform Init 
+      shell: bash
+      run: terraform init
+    
+    - name: Terraform Format 
+      shell: bash
+      run: terraform fmt -check
+    
+    - name: Terraform Plan 
+      id: plan
+      shell: bash
+      run: terraform plan 
 
-      - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Format
-        run: terraform fmt -check
-
-      - name: Terraform Plan
-        run: terraform plan
+    - name: Print Terraform Plan 
+      shell: bash
+      run: echo "${{ steps.plan.outputs.stdout }}"
+  
