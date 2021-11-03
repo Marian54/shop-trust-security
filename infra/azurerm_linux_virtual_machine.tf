@@ -1,3 +1,7 @@
+resource "tls_private_key" "example_ssh" {
+    algorithm = "RSA"
+    rsa_bits = 4096
+}
 
 resource "azurerm_linux_virtual_machine" "vmtf_site" {
   name                = "${var.hostname}-site"
@@ -10,7 +14,7 @@ resource "azurerm_linux_virtual_machine" "vmtf_site" {
 
   admin_ssh_key {
     username   = var.admin_username
-    public_key = "secrets.ID_RSA12"
+    public_key = tls_private_key.example_ssh.public_key_openssh 
   }
 
   source_image_reference  {
