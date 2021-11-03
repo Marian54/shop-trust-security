@@ -43,5 +43,5 @@ jobs:
             tf_actions_version: latest
             tf_actions_subcommand: 'destroy'  
             tf_actions_working_dir: "./.github/workflows/infra"
-            args: './destroy-plan'
+         # args: './destroy-plan'
 
